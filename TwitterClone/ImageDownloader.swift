@@ -9,7 +9,10 @@
 import UIKit
 
 class ImageDownloader {
-  //Image downloader using a tweet object, as used in VC
+  
+  static  var imageCache = [String: UIImage]()
+  
+  //Image downloader that uses a URL directly, used in Tweet JSON Parsing
   class func downloadImage(tweet : Tweet) -> UIImage? {
     if let imageURL = NSURL(string: tweet.profileImageURL.stringByReplacingOccurrencesOfString("_normal", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)),
       let imageData = NSData(contentsOfURL: imageURL),
@@ -21,6 +24,7 @@ class ImageDownloader {
       return nil
     }
   }
+  
   
   //Image downloader that uses a URL directly, used in Tweet JSON Parsing
   class func downloadImage(profileImageURL : String) -> UIImage? {
@@ -49,4 +53,23 @@ class ImageDownloader {
     return size
   }
 }
+
+//  //Image downloader using a tweet object, as used in VC + imageCache
+//  class func downloadImage(tweet : Tweet) -> UIImage? {
+//    if imageCache[tweet.screenName] == nil {
+//      if let imageURL = NSURL(string: tweet.profileImageURL.stringByReplacingOccurrencesOfString("_normal", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)),
+//        let imageData = NSData(contentsOfURL: imageURL),
+//        let image = UIImage(data: imageData)  {
+//          var size = determineProfileImageSize()
+//          let resizedImage = ImageResizer.resizeImage(image, size: size)
+//          imageCache[tweet.screenName] = resizedImage
+//          return resizedImage
+//
+//      }
+////      else {
+////        return nil
+////      }
+//    }
+//    return nil
+//  }
 

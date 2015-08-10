@@ -17,7 +17,6 @@ class ProfileTimeLineViewController: UIViewController, UITableViewDelegate {
   
   //Dangerous forced unwrapping?
   var selectedTweet : Tweet!
-  
   let imageQueue = NSOperationQueue() //This is a background Queue for downloading pictures
   var tweets = [Tweet]()
   var tweetType : String?
@@ -86,6 +85,7 @@ class ProfileTimeLineViewController: UIViewController, UITableViewDelegate {
   }
 }
 
+//Mark: UITableViewDataSource
 extension ProfileTimeLineViewController : UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return tweets.count
@@ -100,7 +100,7 @@ extension ProfileTimeLineViewController : UITableViewDataSource {
     imageQueue.addOperationWithBlock { () -> Void in
       if let image = ImageDownloader.downloadImage(tweet) {
         NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-          tweet.profileImage = image
+          tweet.profileImage = image 
           self.tweets[indexPath.row] = tweet
           cell.profileImage.image = image
         })
@@ -110,6 +110,7 @@ extension ProfileTimeLineViewController : UITableViewDataSource {
   }
 }
 
+//Mark: UITableViewDelegate
 extension ProfileTimeLineViewController : UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     performSegueWithIdentifier("ShowDetailTweet", sender: nil)

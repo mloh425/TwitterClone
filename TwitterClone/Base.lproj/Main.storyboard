@@ -115,7 +115,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vn0-IQ-GV3" userLabel="Gray Activity Indicator">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vn0-IQ-GV3" userLabel="Gray Activity Indicator">
                                 <rect key="frame" x="281" y="282" width="37" height="37"/>
                                 <color key="color" red="0.068672631119999994" green="0.72349846149999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -123,6 +123,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="XeD-gR-x4r" secondAttribute="trailing" constant="-16" id="0WN-Bq-yRD"/>
+                            <constraint firstAttribute="centerY" secondItem="vn0-IQ-GV3" secondAttribute="centerY" id="HPo-9B-pES"/>
+                            <constraint firstAttribute="centerX" secondItem="vn0-IQ-GV3" secondAttribute="centerX" id="MR6-E6-ukd"/>
                             <constraint firstItem="XeD-gR-x4r" firstAttribute="top" secondItem="5S9-T7-uAn" secondAttribute="topMargin" id="dyQ-dF-2Ua"/>
                             <constraint firstItem="XeD-gR-x4r" firstAttribute="leading" secondItem="5S9-T7-uAn" secondAttribute="leadingMargin" constant="-16" id="e1d-NM-CQA"/>
                             <constraint firstItem="Eef-o6-DPf" firstAttribute="top" secondItem="XeD-gR-x4r" secondAttribute="bottom" id="rnE-Zw-kA6"/>
