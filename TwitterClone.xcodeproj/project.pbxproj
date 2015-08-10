@@ -22,8 +22,8 @@
 		34D8CD001B72AB000088BFF2 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8CCFF1B72AB000088BFF2 /* TweetCell.swift */; };
 		34D8CD041B750D9D0088BFF2 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8CD031B750D9D0088BFF2 /* ImageDownloader.swift */; };
 		34D8CD061B7516AA0088BFF2 /* ImageResizer .swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8CD051B7516AA0088BFF2 /* ImageResizer .swift */; };
-		34D8CD0A1B753F9C0088BFF2 /* ProfileTimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8CD091B753F9C0088BFF2 /* ProfileTimeLineViewController.swift */; };
 		34D8CD141B7581650088BFF2 /* CustomTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D8CD131B7581650088BFF2 /* CustomTweetCell.xib */; };
+		34D8CD161B791A5D0088BFF2 /* ProfileTimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8CD151B791A5D0088BFF2 /* ProfileTimeLineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +56,8 @@
 		34D8CCFF1B72AB000088BFF2 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		34D8CD031B750D9D0088BFF2 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		34D8CD051B7516AA0088BFF2 /* ImageResizer .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageResizer .swift"; sourceTree = "<group>"; };
-		34D8CD091B753F9C0088BFF2 /* ProfileTimeLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTimeLineViewController.swift; path = ../ProfileTimeLineViewController.swift; sourceTree = "<group>"; };
 		34D8CD131B7581650088BFF2 /* CustomTweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTweetCell.xib; sourceTree = "<group>"; };
+		34D8CD151B791A5D0088BFF2 /* ProfileTimeLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTimeLineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				34A64EBC1B701CD800449CC5 /* ViewController.swift */,
-				34D8CD091B753F9C0088BFF2 /* ProfileTimeLineViewController.swift */,
+				34D8CD151B791A5D0088BFF2 /* ProfileTimeLineViewController.swift */,
 				34D8CCFD1B72A0440088BFF2 /* DetailTweetViewController.swift */,
 			);
 			name = Controller;
@@ -276,11 +276,11 @@
 				34D8CD061B7516AA0088BFF2 /* ImageResizer .swift in Sources */,
 				34AACA421B7160D3009ABCE9 /* LoginService.swift in Sources */,
 				34D8CD001B72AB000088BFF2 /* TweetCell.swift in Sources */,
+				34D8CD161B791A5D0088BFF2 /* ProfileTimeLineViewController.swift in Sources */,
 				34A64EBD1B701CD800449CC5 /* ViewController.swift in Sources */,
 				34A64EBB1B701CD800449CC5 /* AppDelegate.swift in Sources */,
 				34D8CD041B750D9D0088BFF2 /* ImageDownloader.swift in Sources */,
 				34D8CCFE1B72A0440088BFF2 /* DetailTweetViewController.swift in Sources */,
-				34D8CD0A1B753F9C0088BFF2 /* ProfileTimeLineViewController.swift in Sources */,
 				34AACA441B7168A7009ABCE9 /* TwitterService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
