@@ -1,35 +1,55 @@
 //
-//  ViewController.swift
+//  ProfileTimeLineViewController.swift
 //  TwitterClone
 //
-//  Created by Sau Chung Loh on 8/3/15.
+//  Created by Sau Chung Loh on 8/7/15.
 //  Copyright (c) 2015 Sau Chung Loh. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-  
+class ProfileTimeLineViewController: UIViewController, UITableViewDelegate {
+
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var profileImage: UIImageView!
+  @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  
+  //Dangerous forced unwrapping?
+  var selectedTweet : Tweet!
   
   let imageQueue = NSOperationQueue() //This is a background Queue for downloading pictures
   var tweets = [Tweet]()
+  var tweetType : String?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.registerNib(UINib(nibName: "CustomTweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TweetCell")
+    //Refactoring should be considered when selecting the type of tweet object that should be displayed.
+    self.usernameLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+    if selectedTweet.isARetweet {
+      self.usernameLabel.text = selectedTweet.rtUsername
+      self.profileImage.image = selectedTweet.rtProfileImage
+      tweetType = selectedTweet.rtScreenName
+    } else if selectedTweet.isAQuote {
+      self.usernameLabel.text = selectedTweet.qtUsername
+      self.profileImage.image = selectedTweet.qtProfileImage
+      tweetType = selectedTweet.qtScreenName
+    } else {
+      self.usernameLabel.text = selectedTweet.username
+      self.profileImage.image = selectedTweet.profileImage
+      tweetType = selectedTweet.screenName
+    }
     
     LoginService.loginForTwitter { (errorDescription, account) -> (Void) in
       if let errorDescription = errorDescription {
         //Warn the user
       }
       if let account = account {
-        //Because this closure is on a back end Queue, move the indicator to main queue
         NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
           self.activityIndicator.startAnimating()
         })
-        TwitterService.tweetsFromHomeTimeline(account, completionHandler: { (errorDescription, tweets) -> (Void) in
+        TwitterService.tweetsFromUserTimeline(account, screenName: self.tweetType!, completionHandler: { (errorDescription, tweets) -> (Void) in
           if let tweets = tweets {
             NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
               self.tweets = tweets
@@ -46,16 +66,12 @@ class ViewController: UIViewController {
     tableView.dataSource = self
     tableView.reloadData()
     tableView.delegate = self
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view.
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
-  }
-  
-  deinit {
-    NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -70,8 +86,7 @@ class ViewController: UIViewController {
   }
 }
 
-//MARK: UITableViewDataSource
-extension ViewController : UITableViewDataSource {
+extension ProfileTimeLineViewController : UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return tweets.count
   }
@@ -95,8 +110,7 @@ extension ViewController : UITableViewDataSource {
   }
 }
 
-//MARK: UITableViewDelegate for .NIB File
-extension ViewController : UITableViewDelegate {
+extension ProfileTimeLineViewController : UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     performSegueWithIdentifier("ShowDetailTweet", sender: nil)
   }

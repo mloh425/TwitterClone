@@ -112,3 +112,75 @@ println(removeX(xPhrase3))
 println(removeX(xPhrase4))
 println(removeX(xPhrase5))
 
+//Data Structure Thursday - Implement a Queue
+
+class IntQueue { //Using ints for an example
+  private var intQueue = [Int]()
+  //Adds a value to the end of the queue
+  func enqueue (integer : Int) {
+    if intQueue.isEmpty {
+      intQueue.append(integer)
+    } else {
+      intQueue.insert(integer, atIndex: 0)
+    }
+  }
+  
+  //Removes a value from the head of the queue
+  func dequeue () -> Int? {
+    if !intQueue.isEmpty {
+      return intQueue.removeLast()
+    }
+    return nil
+  }
+  
+  //Returns the value of the element at the head of the queue
+  func peek () -> Int? {
+    if !intQueue.isEmpty {
+      var value = intQueue.removeLast()
+      intQueue.append(value)
+      return value
+    }
+    return nil
+  }
+  
+  func isEmpty() -> Bool {
+    if intQueue.isEmpty {
+      return true
+    }
+    return false
+  }
+  
+  func removeAll() -> [Int] {
+    intQueue = []
+    return intQueue
+  }
+  
+  func printQueue() {
+    println(intQueue)
+  }
+}
+
+var testQueue = IntQueue()
+
+//Testing the addition of ints
+for i in 1...5 {
+  testQueue.enqueue(i)
+}
+testQueue.printQueue()
+
+//Testing the peek method
+
+println(testQueue.peek())
+testQueue.printQueue()
+
+//Testing the dequeue method
+
+for i in 1...5 {
+  testQueue.dequeue()
+  if !testQueue.isEmpty() {
+    testQueue.printQueue()
+  }
+
+}
+  testQueue.printQueue()
+

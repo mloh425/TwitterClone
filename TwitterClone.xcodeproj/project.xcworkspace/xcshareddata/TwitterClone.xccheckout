@@ -7,7 +7,7 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B008CA56-10F0-40DF-A9DB-0E80E8DD15EB</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>TwitterClone</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>32345E4BD815B81BE50237B61DA7B773BB85BFEE</key>
@@ -16,7 +16,7 @@
 		<string>https://github.com/codefellows/sea-d40-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TwitterClone.xcodeproj/project.xcworkspace</string>
+	<string>TwitterClone.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>32345E4BD815B81BE50237B61DA7B773BB85BFEE</key>

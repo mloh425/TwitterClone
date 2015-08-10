@@ -12,11 +12,9 @@ import Accounts //Has all account classes to access Twitter Account
 class LoginService {
   class func loginForTwitter(completionHandler : (String?, ACAccount?) -> (Void)) {
     let accountStore = ACAccountStore()
-    let accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter) //Returns an ACAccount type
-    //Make request - this is A-synchronus code, it fires later
+    let accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
     accountStore.requestAccessToAccountsWithType(accountType, options: nil) { (granted, error) -> (Void) in
       if let error = error {
-        //return nil
         completionHandler("Please Sign in", nil)
         return
       } else {
